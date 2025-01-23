@@ -1,0 +1,11 @@
+versão 1.0 github - LinkedTree 2
+
+Site realizado com HTML5, CSS3 e uma linha de Javascript, 
+sendo os dois últimos arquivos externos ao index.html para 
+padronização e reuso desses arquivos em demais projetos atuais
+e futuros.
+O objetivo do site é reunir links e informações sobre o usuário
+(não personalizável dentro da aplicação) a fim de tornar mais
+fácil e prática a propagação dessas informações de maneira
+'legal' e dinâmica, já mostrando as informações escolhidas pelo
+usuário todas reunidas em uma única página estática.
