@@ -1,0 +1,368 @@
+//----------tipos de dados em C#
+
+Console.WriteLine('a'); // literal char em C# - aspas simples
+Console.WriteLine("Hello World!"); // literal string em C#
+Console.WriteLine(12); // literal inteiro em C#
+Console.WriteLine(12.3m); // literal decimal em C# - 'm' é o sufixo para decimal
+Console.WriteLine(12.3f); // literal float em C# - 'f' é o sufixo para float
+Console.WriteLine(true); // literal booleano em C# - 'true' deve ser minúsculo
+
+
+    // C# é sensitive case - use camelCase
+
+//----------variáveis explícitas em C#
+
+string primeiroNome;
+primeiroNome = "bob";
+Console.WriteLine(primeiroNome);
+
+primeiroNome = "Mateus";
+Console.WriteLine(primeiroNome);
+
+primeiroNome = "Luis";
+Console.WriteLine(primeiroNome);
+
+    // C# é uma linguagem fortemente tipada, ou seja, 
+    // você deve declarar o tipo da variável e não pode mudar o tipo depois
+
+//----------variáveis implícitas em C#
+
+var nome = "Lilian";
+
+
+    // var é uma palavra-chave que permite que o compilador determine o tipo da variável
+
+
+string Nome = "Lilian";
+int MensagensNovas = 3;
+float Temperatura = 34.4f;
+
+Console.Write($"Olá, {Nome}! ");
+Console.Write($"Você tem {MensagensNovas} mensagens novas. ");
+Console.Write($"A temperatura é de {Temperatura} graus. ");
+
+
+//----------Sequências de escape de caracteres e cadeias de caracteres textuais
+
+Console.WriteLine("Gerando invoice para consumidor \"ABC Corp\" ...\n");
+Console.WriteLine("Invoice: 1021\t\tCompleta!");
+Console.WriteLine("Invoice: 1022\t\tCompleta!");
+Console.WriteLine("\nDiretório de saída:\t");
+Console.WriteLine(@"c:\invoices");
+
+    //Para gerar o invoice japonês:
+    //Nihon no seikyū-sho o seisei suru ni wa:
+
+Console.Write("\n\n\u65e5\u672c\u306e\u8acb\u6c42\u66f8\u3092\u751f\u6210\u3059\u308b\u306b\u306f\uff1a\n\t");
+Console.WriteLine(@"c:\invoices\app.exe .j");
+    // \u é um prefixo que indica que o caractere é um caractere Unicode, ou seja, um caractere especial UTF-16
+
+
+//---------- cadeia de caracteres textuais - @
+    // @ é um prefixo que indica que a cadeia de caracteres 
+é uma cadeia de caracteres textuais
+
+Console.WriteLine(@" c:\source\repos
+                    (aqui é onde inserimos o código)");
+
+
+    //Console.WriteLine("\u3053\u3093\u306B\u3061\u306F Mundo!");
+
+//----------Concatenação de cadeias de caracteres
+
+string primeiroNome = "bob";
+string cumprimento = "Olá";
+Console.WriteLine(cumprimento + " " + primeiroNome + "!");
+
+
+//----------Interpolação de cadeias de caracteres
+
+string primeiroNome = "bob";
+string cumprimento = "Olá";
+Console.WriteLine($"{cumprimento} {primeiroNome}!");
+
+    //Interpolação de cadeias de caracteres com formatação
+    string nomeDoProjeto = "CSharp";
+    Console.Write("\nSearching for project directory...\n");
+    Console.WriteLine($"Found! \t\tC:\\Output\\{nomeDoProjeto}\\Data");
+    Console.Write("\nInitializing...\n");
+    Console.Write($"\t{nomeDoProjeto} is ready for use. Press any key to continue...");
+   
+
+// Desafio:
+
+string projectName ="ACME";
+
+string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u043f\u0440\u043e\u0435\u043a\u0442 
+\u043d\u0430 \u0440\u0443\u0441\u0441\u043a\u043e\u043c";
+string russianLocation = $"c:\\Exercise\\{projectName}\\ru-RU\\data.txt";
+string englishMessage = "view english output: ";
+string englishLocation = $"c:\\Exercise\\{projectName}\\en-US\\data.txt";
+
+Console.WriteLine($"{englishMessage}\n\t{englishLocation}\n");
+Console.WriteLine($"{russianMessage}\n\t{russianLocation}\n");
+
+
+
+//----------Operadores aritméticos
+int primeiroNumero = 20;
+int segundoNumero = 10;
+
+int soma = primeiroNumero + segundoNumero;
+int subtracao = primeiroNumero - segundoNumero;
+int produto = primeiroNumero * segundoNumero;
+int divisao = primeiroNumero / segundoNumero;
+int resto = primeiroNumero % segundoNumero;
+
+Console.Write($"Soma: {soma}\nSubtração: {subtracao}\nProduto: {produto}\nDivisão: {divisao}\nResto: {resto}\n");
+
+
+//----------conversão de tipos de dados 
+int numero = 10;
+var numeroFloat = (float)numero + 3;
+Console.WriteLine(numeroFloat); // float
+
+
+//----------incremento e decremento de valores
+
+int numero = 10;
+numero++; // ou numero--;
+Console.WriteLine(numero); // 11 ou 9
+
+int numero = 10;
+numero += 1; // ou numero -= 1;
+Console.WriteLine(numero); // 11 ou 9
+
+    // operadores de atribuição
+    int numero = 10;
+    numero *= 2;
+    numero /= 2; 
+    numero %= 2;
+    Console.WriteLine(numero); // 0
+
+
+// Desafio:
+int tempFarenheit = 72;
+float tempCelsius = (tempFarenheit - 32) * 5 / 9;
+
+Console.Write($"A temperatura de {tempFarenheit}°F é equivalente a {tempCelsius}°C.");
+
+
+//----------Uso de métodos
+
+int firstValue = 500;
+int secondValue = 600;
+int largerValue = Math.Max(firstValue, secondValue);
+
+Console.WriteLine("The larger value is " + largerValue);
+
+
+//----------operadores lógicos - If Else 
+
+Random dice = new Random();
+
+int roll1 = dice.Next(1, 7);
+int roll2 = dice.Next(1, 7);
+int roll3 = dice.Next(1, 7);
+
+int total = roll1 + roll2 + roll3;
+
+Console.Write($"\nRolagem dos dados:\nDado 1: \t{roll1}\nDado 2: \t{roll2}\n
+Dado 3: \t{roll3}\n__________________\nTotal: \t\t{total}\n\n");
+
+if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3))
+{
+    if ((roll1 == roll2) && (roll2 == roll3))
+    {
+        Console.Write("Você ganhou um bônus de 6 pontos!\n");
+        total += 6;
+        Console.Write($"Total: \t{total}\n\n");
+    }
+    else
+    {
+        Console.Write("Você ganhou um bônus de 2 pontos!\n");
+        total += 2;
+        Console.Write($"Total: \t{total}\n\n");
+    }
+}
+
+/*
+if ((roll1 == roll2) && (roll2 == roll3))
+{ // && expressa 'e'
+    Console.Write("Você ganhou um bônus de 6 pontos!\n");
+    total += 6;
+    Console.Write($"Total: \t{total}\n\n");
+}
+else if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3))
+{ // || expressa 'ou'
+    Console.Write("Você ganhou um bônus de 2 pontos!\n");
+    total += 2;
+    Console.Write($"Total: \t{total}\n\n");
+}
+*/
+
+if (total >= 16)
+{
+    Console.Write("Você ganhou um carro 0km!\n\n");
+}
+else if (total >= 10)
+{
+    Console.Write("Você ganhou um console de videogame!\n\n");
+}
+else if (total == 7)
+{
+    Console.Write("Você ganhou um vale-compras!\n\n");
+}
+else
+{
+    Console.Write("Você ganhou um vale-refeição!\n\n");
+}
+
+// Desafio:
+
+Random days = new Random();
+int daysUntilExpiration = days.Next(16);
+int discountPercentage = 0;
+
+
+
+if (daysUntilExpiration == 0)
+{
+    Console.Write("\n\t\tYour subscription has expired.\n\n");
+}
+else if (daysUntilExpiration == 1)
+{
+    discountPercentage = 20;
+    Console.Write($"\n\t\tYour subscription expires within a day!\n\nRenew now and save {discountPercentage}%!\n\n");
+}
+else if (daysUntilExpiration <=5)
+{
+    discountPercentage = 10;
+    Console.Write($"\n\t\tYour subscription expires in {daysUntilExpiration} days.\n\nRenew now and save {discountPercentage}%!\n\n");
+}
+else if (daysUntilExpiration <= 10)
+{
+    Console.Write($"\n\t\tYour subscription will expire soon. Renew now!\n\nDays until expiration: {daysUntilExpiration}\n\n");
+}
+
+
+//----------sequências de dados - matrizes
+
+/*string[] fraudulentOrdersID = new string[3];
+
+fraudulentOrdersID[0] = "A123";
+fraudulentOrdersID[1] = "B456";
+fraudulentOrdersID[2] = "C789";
+*/
+
+string[] fraudulentOrdersID = { "A123", "B456", "C789" };
+
+Console.WriteLine(fraudulentOrdersID[0]);
+Console.WriteLine(fraudulentOrdersID[1]);
+Console.WriteLine(fraudulentOrdersID[2]);
+
+fraudulentOrdersID[0] = "A000";
+
+Console.WriteLine(fraudulentOrdersID[0]);
+
+Console.WriteLine(fraudulentOrdersID.Length);
+
+
+string[] nomes = {"João", "Maria", "José"};
+int contador = 0;
+
+foreach (string nome in nomes)
+{
+    Console.WriteLine(nome);
+    contador++;
+}
+
+Console.WriteLine($"Quantidade de nomes: {contador}");
+
+// Desafio:
+
+string[] promptID = { "B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B129", "B144", "C502", "B014" };
+int idValue = 0;
+int counter = 0;
+string susPrefix = "B";
+
+foreach (string id in promptID)
+{
+    if (id.StartsWith(susPrefix))
+    {
+        idValue += 1;
+    }
+
+}
+
+string[] susID = new string[idValue];
+
+foreach (string id in promptID)
+{
+    if (id.StartsWith(susPrefix))
+    {
+        susID[counter] = id;
+        Console.WriteLine(susID[counter]);
+        counter += 1;
+    }
+}
+
+
+// Desafio:
+
+int[] sophiaNotas = {93, 87, 98, 95, 100};
+int[] nicolasNotas = {80, 83, 82, 88, 85};
+int[] zahirahNotas = {84, 96, 73, 85, 79};
+int[] jeongNotas = {90, 92, 98, 100, 97};
+
+int sophiaSum = sophiaNotas.Sum();
+int nicolasSum = nicolasNotas.Sum();
+int zahirahSum = zahirahNotas.Sum();
+int jeongSum = jeongNotas.Sum();
+
+int[] listSum = {sophiaSum, nicolasSum, zahirahSum, jeongSum};
+
+
+int currentAssignments = 5;
+string barraHorizont = "-------------------------";
+int counter = 0;
+
+Console.WriteLine("\tNotas totais dos alunos\n");
+Console.WriteLine("\t\t\tN1\t\tN2\t\tN3\t\tN4\t\tN5\t\tMédia\t\tNota Final");
+Console.WriteLine(barraHorizont + barraHorizont + barraHorizont);
+
+
+Console.Write("Sophia\t");
+foreach (int nota in sophiaNotas) 
+{
+    Console.Write($"\t|{nota} ");
+}
+Console.Write($"\t|{(decimal) sophiaSum / 5}");
+Console.WriteLine("\t\t|A");
+
+
+Console.Write("Nicolas\t");
+foreach (int nota in nicolasNotas) 
+{
+    Console.Write($"\t|{nota} ");
+}
+Console.Write($"\t|{(decimal) nicolasSum / 5}");
+Console.WriteLine("\t\t|B");
+
+
+Console.Write("Zahirah\t");
+foreach (int nota in zahirahNotas) 
+{
+    Console.Write($"\t|{nota} ");
+}
+Console.Write($"\t|{(decimal) zahirahSum / 5}");
+Console.WriteLine("\t\t|B");
+
+
+Console.Write("Jeong\t");
+foreach (int nota in jeongNotas) 
+{
+    Console.Write($"\t|{nota} ");
+}
+Console.Write($"\t|{(decimal) jeongSum / 5}");
+Console.WriteLine("\t\t|A");
